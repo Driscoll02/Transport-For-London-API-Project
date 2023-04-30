@@ -31,15 +31,17 @@ const styles = {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginTop: '2vh',
+        paddingTop: '2vh',
         marginLeft: '2vh',
-        minHeight: '10vh'
+        minHeight: '10vh',
+        position: 'relative',
+        zIndex: 2,
     },
     logoContainer: {
         flex: 2,
     },
     logo: {
-        width: 230,
+        width: 200,
         height: 90,
     },
     navLinksContainer: {
