@@ -14,7 +14,7 @@ export default function NavBar() {
             <div style={styles.navLinksContainer}>
                 <ul style={styles.linksList}>
                     <li><a style={styles.linkText} href="/accidentstats">Accident Stats</a></li>
-                    <li><a style={styles.linkText} href="#">Air Quality</a></li>
+                    <li><a style={styles.linkText} href="/airquality">Air Quality</a></li>
                     <li><a style={styles.linkText} href="#">Bike Points</a></li>
                     <ul style={styles.socialLinksList}>
                         <li><a style={styles.linkText} href="#"><FontAwesomeIcon icon={faTwitter} style={{fontSize: '1.8rem'}} /></a></li>

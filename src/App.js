@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from '@mui/material/styles';
 import { createTheme } from '@mui/material/styles';
 import AccidentStats from './components/accidentstats';
+import AirQuality from './components/airquality';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path='/' element={<LandingPage />} />
           <Route path='/accidentstats' element={<AccidentStats />} />
+          <Route path='/airquality' element={<AirQuality />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
