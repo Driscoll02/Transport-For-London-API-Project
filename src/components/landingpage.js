@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import NavBar from "./navbar";
 import background from "../images/UpdatedBackgroundImage.svg";
 import wave from "../images/wave.svg";
@@ -7,26 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 export default function LandingPage() {
-    useEffect(() => {
-
-        const handleScroll = () => {
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.documentElement.scrollHeight;
-            const currentPosition = window.scrollY;
-            const scrollUp = currentPosition - windowHeight;
-            const scrollDown = currentPosition + windowHeight;
-            
-            if (currentPosition === 0 && scrollUp < 0) {
-                return;
-            } else if (scrollDown >= documentHeight) {
-                return;
-            } else if (window.scrollY > 0) {
-                window.scrollTo(0, scrollDown);
-            } else {
-                window.scrollTo(0, scrollUp);
-            }
-        };
-    }, [])
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -81,7 +61,6 @@ export default function LandingPage() {
 
 const styles = {
     topScreenContainer: {
-        scrollSnapType: 'y mandatory',
         scrollBehavior: 'smooth',
     },
     screenContainer: {

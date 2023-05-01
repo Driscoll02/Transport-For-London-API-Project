@@ -7,11 +7,13 @@ export default function NavBar() {
     return (
         <nav style={styles.navContainer}>
             <div style={styles.logoContainer}>
-                <img src={Logo} alt="Logo" style={styles.logo} />
+                <a href="/">
+                    <img src={Logo} alt="Logo" style={styles.logo} />
+                </a>
             </div>
             <div style={styles.navLinksContainer}>
                 <ul style={styles.linksList}>
-                    <li><a style={styles.linkText} href="#">Accident Stats</a></li>
+                    <li><a style={styles.linkText} href="/accidentstats">Accident Stats</a></li>
                     <li><a style={styles.linkText} href="#">Air Quality</a></li>
                     <li><a style={styles.linkText} href="#">Bike Points</a></li>
                     <ul style={styles.socialLinksList}>

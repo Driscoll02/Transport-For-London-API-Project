@@ -1,14 +1,19 @@
 import './App.css';
 import LandingPage from './components/landingpage';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from '@mui/material/styles';
 import { createTheme } from '@mui/material/styles';
+import AccidentStats from './components/accidentstats';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <div className="App">
-      <LandingPage />
-    </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<LandingPage />} />
+          <Route path='/accidentstats' element={<AccidentStats />} />
+        </Routes>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }
