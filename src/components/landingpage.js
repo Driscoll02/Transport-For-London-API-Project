@@ -59,6 +59,14 @@ export default function LandingPage() {
                     </div>
                     <div style={styles.bottomScreenContent}>
                         <h3 style={styles.bottomScreenHeader}>What would you like to check?</h3>
+                        <div style={styles.bottomLinksContainer}>
+                            <ul>
+                                <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/accidentstats"><li style={styles.bottomIndividualLink}>Accident Stats</li></a>
+                                <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/airquality"><li style={styles.bottomIndividualLink}>Air Quality</li></a>
+                                <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/bikepoints"><li style={styles.bottomIndividualLink}>Bike Points</li></a>
+                                <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/accidentstats"><li style={styles.bottomIndividualLink}>Taxis</li></a>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -100,6 +108,14 @@ export default function LandingPage() {
                     </div>
                     <div style={styles.bottomScreenContent}>
                         <h3 style={styles.bottomScreenHeader}>What would you like to check?</h3>
+                        <div style={styles.bottomLinksContainer}>
+                            <ul>
+                                <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/accidentstats"><li style={styles.bottomIndividualLink}>Accident Stats</li></a>
+                                <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/airquality"><li style={styles.bottomIndividualLink}>Air Quality</li></a>
+                                <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/bikepoints"><li style={styles.bottomIndividualLink}>Bike Points</li></a>
+                                <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/accidentstats"><li style={styles.bottomIndividualLink}>Taxis</li></a>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -139,8 +155,16 @@ export default function LandingPage() {
                     <div style={styles.secondWaveContainer}>
                         <img style={styles.secondWaveImage} src={wave} alt="" />
                     </div>
-                    <div style={styles.bottomScreenContent}>
+                    <div style={styles.phoneBottomScreenContent}>
                         <h3 style={styles.bottomScreenHeader}>What would you like to check?</h3>
+                        <div style={styles.bottomLinksContainer}>
+                            <ul>
+                                <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/accidentstats"><li style={styles.bottomIndividualLink}>Accident Stats</li></a>
+                                <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/airquality"><li style={styles.bottomIndividualLink}>Air Quality</li></a>
+                                <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/bikepoints"><li style={styles.bottomIndividualLink}>Bike Points</li></a>
+                                <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/accidentstats"><li style={styles.bottomIndividualLink}>Taxis</li></a>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -180,8 +204,16 @@ export default function LandingPage() {
                     <div style={styles.secondWaveContainer}>
                         <img style={styles.secondWaveImage} src={wave} alt="" />
                     </div>
-                    <div style={styles.bottomScreenContent}>
+                    <div style={styles.phoneBottomScreenContent}>
                         <h3 style={styles.bottomScreenHeader}>What would you like to check?</h3>
+                        <div style={styles.phoneLinksContainer}>
+                            <ul>
+                                <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/accidentstats"><li style={styles.bottomIndividualLink}>Accident Stats</li></a>
+                                <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/airquality"><li style={styles.bottomIndividualLink}>Air Quality</li></a>
+                                <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/bikepoints"><li style={styles.bottomIndividualLink}>Bike Points</li></a>
+                                <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/accidentstats"><li style={styles.bottomIndividualLink}>Taxis</li></a>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -228,8 +260,9 @@ const styles = {
     },
     screenContainer: {
         height: '100vh',
+        width: '100vw',
         backgroundImage: `url(${background})`,
-        backgroundSize: '100%',
+        backgroundSize: '100vh',
         scrollBehavior: 'smooth',
     },
     darkBackground: {
@@ -238,7 +271,7 @@ const styles = {
         top: 0,
         left: 0,
         width: '100%',
-        height: '100%',
+        height: '100vh',
         zIndex: 1,
     },
     secondDarkBackground: {
@@ -246,8 +279,8 @@ const styles = {
         backgroundColor: 'rgba(0, 0, 0, 0.9)',
         top: '100vh',
         left: 0,
-        width: '100%',
-        height: '100%',
+        width: '100vw',
+        height: '100vh',
         zIndex: 1,
     },
     midContainer: {
@@ -322,7 +355,7 @@ const styles = {
         position: 'absolute',
         bottom: 0,
         zIndex: 2,
-        width: '100%',
+        width: '100vw',
         overflow: 'hidden',
         display: 'flex',
         alignItems: 'flex-end',
@@ -337,7 +370,7 @@ const styles = {
         alignItems: 'flex-end',
     },
     waveImage: {
-        height: '100%'
+        width: '100vw',
     },
     arrowContainer: {
         position: 'absolute',
@@ -345,20 +378,20 @@ const styles = {
         left: 0,
         display: 'flex',
         color: '#D7D7D7',
-        padding: '1.2rem',
+        padding: '0.4rem',
         alignItems: 'end',
     },
     arrow: {
         fontSize: '3.5rem',
         marginRight: '1.2rem',
     },
-    smallScreenArrow: {
-        fontSize: '2.2rem',
-        marginRight: '1rem',
-    },
     arrowText: {
         fontSize: '1.5rem',
-        paddingBottom: '0.2rem',
+        marginRight: '1.2rem',
+    },
+    smallScreenArrow: {
+        fontSize: '1.9rem',
+        marginRight: '1.2rem',
     },
     smallScreenArrowText: {
         fontSize: '1.1rem',
@@ -383,9 +416,35 @@ const styles = {
         zIndex: 2,
         height: '80vh',
         width: '80%',
-        marginLeft: '15vw',
+        marginLeft: '10vw',
+    },
+    phoneBottomScreenContent: {
+        marginTop: '10vh',
+        color: '#D7D7D7',
+        position: 'relative',
+        zIndex: 2,
+        height: '80vh',
+        width: '80%',
+        marginLeft: '10vw',
     },
     bottomScreenHeader: {
         fontSize: '1.7rem',
-    }
+    },
+    bottomLinksContainer: {
+        backgroundColor: '#2D2D2D',
+        marginTop: '1rem',
+        width: '80vw',
+    },
+    bottomIndividualLink: {
+        width: '90%',
+        margin: '1rem',
+        padding: '1rem',
+        backgroundColor: '#4D4D4D',
+        borderRadius: 15,
+    },
+    phoneLinksContainer: {
+        backgroundColor: '#2D2D2D',
+        marginTop: '1rem',
+        width: '80vw',
+    },
 }

@@ -84,7 +84,7 @@ export default function NavBar() {
         return (
             <div>
                 <nav style={styles.navContainer}>
-                    <div style={styles.logoContainer}>
+                    <div style={styles.phoneLogoContainer}>
                         <a href="/">
                             <img src={Logo} alt="Logo" style={styles.phoneLogo} />
                         </a>
@@ -138,8 +138,11 @@ const styles = {
     logoContainer: {
         flex: 2,
     },
+    phoneLogoContainer: {
+        flex: 5,
+    },
     phoneLogo: {
-        width: '30vw',
+        width: '45vw',
         height: 90,
     },
     logo: {
@@ -195,8 +198,8 @@ const styles = {
         top: 0,
         bottom: 0,
         backgroundColor: '#2D2D2D',
-        width: '40vw',
-        height: '28vh',
+        width: '70vw',
+        height: '40vh',
         marginTop: '2vh',
     },
     menuLink: {
