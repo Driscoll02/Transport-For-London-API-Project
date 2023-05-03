@@ -8,11 +8,13 @@ export default function BikePoints() {
     const [bikePoints, setBikePoints] = useState(null);
     const [limit, setLimit] = useState(5);
     const [offset, setOffset] = useState(0);
+    const [pageNumber, setPageNumber] = useState(1);
 
     // Helper functions for pagination
     const handleNextPage = () => {
         setOffset(offset + 5);
         setLimit(limit + 5);
+        setPageNumber(pageNumber + 1);
         renderList(bikePoints, limit, offset);
     }
 
@@ -20,6 +22,7 @@ export default function BikePoints() {
         if (offset > 0) {
             setOffset(offset - 5);
             setLimit(limit - 5);
+            setPageNumber(pageNumber - 1);
             renderList(bikePoints, limit, offset);
         }
     }
@@ -77,6 +80,8 @@ export default function BikePoints() {
                 if (offset >= 5 && bikePoints[limit + 1] !== undefined) {
                     return (
                         <div>
+                            <h3>Results found: {bikePoints.length}</h3>
+                            <h4>Page number: {pageNumber}</h4>
                             <ul>
                                 {limitedBikePoints.map((item) => <BikePointItem key={item.id} lat={item.lat} lon={item.lon} name={item.commonName} />)}
                             </ul>
@@ -89,6 +94,8 @@ export default function BikePoints() {
                 } else if (bikePoints[limit + 1] !== undefined) {
                     return (
                         <div>
+                            <h3>Results found: {bikePoints.length}</h3>
+                            <h4>Page number: {pageNumber}</h4>
                             <ul>
                                 {limitedBikePoints.map((item) => <BikePointItem key={item.id} lat={item.lat} lon={item.lon} name={item.commonName} />)}
                             </ul>
@@ -100,6 +107,8 @@ export default function BikePoints() {
                 } else {
                     return (
                         <div>
+                            <h3>Results found: {bikePoints.length}</h3>
+                            <h4>Page number: {pageNumber}</h4>
                             <ul>
                                 {limitedBikePoints.map((item) => <BikePointItem key={item.id} lat={item.lat} lon={item.lon} name={item.commonName} />)}
                             </ul>
