@@ -38,9 +38,7 @@ export default function LandingPage() {
                                 <a href="#getStartedPage" onClick={handleClick}>
                                     <Button href="" variant="contained" color="primary" style={styles.landingButton}>Get Started</Button>
                                 </a>
-                                <a href="#getStartedPage">
-                                    <Button href="" variant="outlined" color="secondary" style={styles.landingButton}>Search Locations</Button>
-                                </a>
+                                <Button href="/taxisandcabs" variant="outlined" color="secondary" style={styles.landingButton}>Get a Taxi</Button>
                             </div>
                         </div>
                     </div>
@@ -64,7 +62,7 @@ export default function LandingPage() {
                                 <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/accidentstats"><li style={styles.bottomIndividualLink}>Accident Stats</li></a>
                                 <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/airquality"><li style={styles.bottomIndividualLink}>Air Quality</li></a>
                                 <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/bikepoints"><li style={styles.bottomIndividualLink}>Bike Points</li></a>
-                                <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/accidentstats"><li style={styles.bottomIndividualLink}>Taxis</li></a>
+                                <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/taxisandcabs"><li style={styles.bottomIndividualLink}>Taxis</li></a>
                             </ul>
                         </div>
                     </div>
@@ -87,9 +85,7 @@ export default function LandingPage() {
                                 <a href="#getStartedPage" onClick={handleClick}>
                                     <Button href="" variant="contained" color="primary" style={styles.landingButton}>Get Started</Button>
                                 </a>
-                                <a href="#getStartedPage">
-                                    <Button href="" variant="outlined" color="secondary" style={styles.landingButton}>Search Locations</Button>
-                                </a>
+                                <Button href="/taxisandcabs" variant="outlined" color="secondary" style={styles.landingButton}>Get a Taxi</Button>
                             </div>
                         </div>
                     </div>
@@ -113,7 +109,7 @@ export default function LandingPage() {
                                 <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/accidentstats"><li style={styles.bottomIndividualLink}>Accident Stats</li></a>
                                 <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/airquality"><li style={styles.bottomIndividualLink}>Air Quality</li></a>
                                 <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/bikepoints"><li style={styles.bottomIndividualLink}>Bike Points</li></a>
-                                <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/accidentstats"><li style={styles.bottomIndividualLink}>Taxis</li></a>
+                                <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/taxisandcabs"><li style={styles.bottomIndividualLink}>Taxis</li></a>
                             </ul>
                         </div>
                     </div>
@@ -136,9 +132,7 @@ export default function LandingPage() {
                                 <a href="#getStartedPage" onClick={handleClick}>
                                     <Button href="" variant="contained" color="primary" style={styles.landingButton}>Get Started</Button>
                                 </a>
-                                <a href="#getStartedPage">
-                                    <Button href="" variant="outlined" color="secondary" style={styles.landingButton}>Search Locations</Button>
-                                </a>
+                                <Button href="/taxisandcabs" variant="outlined" color="secondary" style={styles.landingButton}>Get a Taxi</Button>
                             </div>
                         </div>
                     </div>
@@ -162,7 +156,7 @@ export default function LandingPage() {
                                 <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/accidentstats"><li style={styles.bottomIndividualLink}>Accident Stats</li></a>
                                 <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/airquality"><li style={styles.bottomIndividualLink}>Air Quality</li></a>
                                 <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/bikepoints"><li style={styles.bottomIndividualLink}>Bike Points</li></a>
-                                <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/accidentstats"><li style={styles.bottomIndividualLink}>Taxis</li></a>
+                                <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/taxisandcabs"><li style={styles.bottomIndividualLink}>Taxis</li></a>
                             </ul>
                         </div>
                     </div>
@@ -185,9 +179,7 @@ export default function LandingPage() {
                                 <a href="#getStartedPage" onClick={handleClick}>
                                     <Button href="" variant="contained" color="primary" style={styles.phoneLandingButton}>Get Started</Button>
                                 </a>
-                                <a href="#getStartedPage">
-                                    <Button href="" variant="outlined" color="secondary" style={styles.phoneLandingButton}>Search Locations</Button>
-                                </a>
+                                <Button href="/taxisandcabs" variant="outlined" color="secondary" style={styles.phoneLandingButton}>Get a Taxi</Button>
                             </div>
                         </div>
                     </div>
@@ -211,7 +203,7 @@ export default function LandingPage() {
                                 <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/accidentstats"><li style={styles.bottomIndividualLink}>Accident Stats</li></a>
                                 <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/airquality"><li style={styles.bottomIndividualLink}>Air Quality</li></a>
                                 <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/bikepoints"><li style={styles.bottomIndividualLink}>Bike Points</li></a>
-                                <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/accidentstats"><li style={styles.bottomIndividualLink}>Taxis</li></a>
+                                <a style={{color: '#D7D7D7', textDecoration: 'none'}} href="/taxisandcabs"><li style={styles.bottomIndividualLink}>Taxis</li></a>
                             </ul>
                         </div>
                     </div>

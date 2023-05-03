@@ -6,6 +6,7 @@ import { createTheme } from '@mui/material/styles';
 import AccidentStats from './components/accidentstats';
 import AirQuality from './components/airquality';
 import BikePoints from './components/bikepoints';
+import Taxis from './components/taxis';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path='/accidentstats' element={<AccidentStats />} />
           <Route path='/airquality' element={<AirQuality />} />
           <Route path='/bikepoints' element={<BikePoints />} />
+          <Route path='/taxisandcabs' element={<Taxis />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

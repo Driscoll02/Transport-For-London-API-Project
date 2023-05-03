@@ -6,7 +6,6 @@ import BikePointItem from './shared/bikePointItem';
 export default function BikePoints() {
     const [error, setError] = useState('');
     const [bikePoints, setBikePoints] = useState(null);
-    const [refreshed, setRefreshed] = useState('');
     const [limit, setLimit] = useState(5);
     const [offset, setOffset] = useState(0);
 
@@ -117,6 +116,7 @@ export default function BikePoints() {
                 <div style={styles.forecastCard}>
                     <h1>Bike points</h1>
                     {renderList(bikePoints, limit, offset)}
+                    <p>{error}</p>
                 </div>
             </div>
         </div>
