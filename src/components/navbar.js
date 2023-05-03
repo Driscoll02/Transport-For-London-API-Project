@@ -24,7 +24,7 @@ export default function NavBar() {
                     <ul style={styles.linksList}>
                         <li><a style={styles.linkText} href="/accidentstats">Accident Stats</a></li>
                         <li><a style={styles.linkText} href="/airquality">Air Quality</a></li>
-                        <li><a style={styles.linkText} href="#">Bike Points</a></li>
+                        <li><a style={styles.linkText} href="/bikepoints">Bike Points</a></li>
                         <ul style={styles.socialLinksList}>
                             <li><a style={styles.linkText} href="#"><FontAwesomeIcon icon={faTwitter} style={{fontSize: '1.8rem'}} /></a></li>
                             <li><a style={styles.linkText} href="#"><FontAwesomeIcon icon={faInstagram} style={{fontSize: '1.8rem'}} /></a></li>
@@ -48,7 +48,7 @@ export default function NavBar() {
                     <ul style={styles.linksList}>
                         <li><a style={styles.tabletLinkText} href="/accidentstats">Accident Stats</a></li>
                         <li><a style={styles.tabletLinkText} href="/airquality">Air Quality</a></li>
-                        <li><a style={styles.tabletLinkText} href="#">Bike Points</a></li>
+                        <li><a style={styles.tabletLinkText} href="/bikepoints">Bike Points</a></li>
                         <ul style={styles.socialLinksList}>
                             <li><a style={styles.linkText} href="#"><FontAwesomeIcon icon={faTwitter} style={{fontSize: '1.4rem'}} /></a></li>
                             <li><a style={styles.linkText} href="#"><FontAwesomeIcon icon={faInstagram} style={{fontSize: '1.4rem'}} /></a></li>
@@ -74,7 +74,7 @@ export default function NavBar() {
                             <li><Button variant='contained' onClick={toggleMenu} style={{margin: '0.8rem', float: 'right'}}>Close menu</Button></li>
                             <li style={styles.menuLink}><a style={styles.menuLinkText} href="/accidentstats">Accident Stats</a></li>
                             <li style={styles.menuLink}><a style={styles.menuLinkText} href="/airquality">Air Quality</a></li>
-                            <li style={styles.menuLink}><a style={styles.menuLinkText} href="/accidentstats">Bike Points</a></li>
+                            <li style={styles.menuLink}><a style={styles.menuLinkText} href="/bikepoints">Bike Points</a></li>
                         </ul>
                     </div>
                 )

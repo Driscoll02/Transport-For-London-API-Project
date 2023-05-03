@@ -47,8 +47,6 @@ export default function AirQuality() {
     const todaysForcast = () => {
       if (currentQuality)  {
         const { forecastBand, forecastSummary, nO2Band, o3Band, pM10Band, pM25Band, sO2Band, publishedDate, forecastText} = currentQuality.currentForecast[0];
-        
-        console.log(currentQuality)
 
         // Format date into a nicer state
         const date = new Date(publishedDate);
@@ -81,6 +79,7 @@ export default function AirQuality() {
                 <div style={{display: 'flex', alignItems: 'center'}}>
                     <Button variant='contained' style={{marginRight: '1rem'}} onClick={handleRefresh}>Refresh Forecast</Button>
                     <p>{refreshed}</p>
+                    <p>{error}</p>
                 </div>
             </div>
         )
