@@ -15,6 +15,7 @@ export default function Taxis() {
     const [radius, setRadius] = useState('');
     const [opName, setOpName] = useState('');
     const [wheelchairAccess, setWheelchairAccess] = useState('');
+    const [sortBy, setSortBy] = useState('');
 
     
     useEffect(() => {
@@ -26,14 +27,15 @@ export default function Taxis() {
             setError(error.message);
         });
 
+        // Get operators on component mount
         if (latitude && longitude) {
             getTaxiInformation();
         }
     }, [latitude, longitude]);
 
 
+    // Get taxi information API request
     const getTaxiInformation = () => {
-
         // Dynamically build query string template with state values
         let query = '';
 
@@ -53,9 +55,7 @@ export default function Taxis() {
             query += `&wc=${wheelchairAccess}`
         }
 
-        console.log(query)
-
-        // Dummy data to test if user not in London: lat: 51.5073509 lon: -0.1277583
+        // Dummy data to use if you are not in London: lat: 51.5073509 lon: -0.1277583
         fetch(`https://api.tfl.gov.uk/Cabwise/search?lat=${51.5073509}&lon=${-0.1277583}${query}`, {
             method: 'GET',
             headers: {
@@ -76,11 +76,11 @@ export default function Taxis() {
         })
         .then(resJson => {
             setSearchResults(resJson);
-            console.log("Here");
         })
         .catch(err => setError(err.message));
     }
 
+    // Helper functions for pagination
     const handleNextPage = () => {
         setOffset(offset + 5);
         setLimit(limit + 5);
@@ -95,6 +95,7 @@ export default function Taxis() {
         }
     }
 
+    // Render operators returned by search
     const renderOperators = (operators, limit, offset) => {
         let limitedOperators = []
         
@@ -162,13 +163,53 @@ export default function Taxis() {
         }
     }
 
-    
+    // Handle how to sort operators based on state
+    const handleSortChange = (event) => {
+        setSortBy(event.target.value);
+
+        if (sortBy === 'Name') {
+            sortByDistance();
+        } else {
+            sortByName();
+        }
+    }
+
+    // Sort operators by OrganisationName alphabetically
+    const sortByName = () => searchResults.Operators.OperatorList.sort(function (a, b) {
+        if (a.OrganisationName < b.OrganisationName) {
+            return -1;
+        }
+        if (a.OrganisationName > b.OrganisationName) {
+            return 1;
+        }
+        return 0;
+    });
+
+    // Sort operators by distance
+    const sortByDistance = () => searchResults.Operators.OperatorList.sort(function (a, b) {
+        if (a.Distance < b.Distance) {
+            return -1;
+        }
+        if (a.Distance > b.Distance) {
+            return 1;
+        }
+        return 0;
+    });
+
+    // Called on search
     const handleSearch = () => {
-        console.log(opType);
         setOffset(0)
         getTaxiInformation();
         renderOperators(searchResults.Operators.OperatorList, limit, offset)
     }
+
+    // Validate radius input
+    const handleRadiusChange = (event) => {
+        const regex = /^[0-9]*$/
+        if (event.target.value === "" || regex.test(event.target.value)) {
+            setRadius(event.target.value);
+        }
+    };
 
     if (searchResults) {
         if (searchResults.Operators.OperatorList.length === 0) {
@@ -180,15 +221,24 @@ export default function Taxis() {
                     <h3>Any of these fields can be left blank</h3>
                     <div style={styles.searchOptions}>
                         <TextField style={styles.option} variant='filled' placeholder='Operator Type' value={opType} onChange={event => setOpType(event.target.value)} />
-                        <TextField style={styles.option} variant='filled' placeholder='Radius' value={radius} onChange={event => setRadius(event.target.value)} />
+                        <TextField style={styles.option} variant='filled' placeholder='Radius' value={radius} onChange={event => handleRadiusChange(event)} />
                         <TextField style={styles.option} variant='filled' placeholder='Operator Name' value={opName} onChange={event => setOpName(event.target.value)} />
                     </div>
-                    <div style={{marginBottom: '1rem'}}>
-                        <h4>Wheelchair Access:</h4>
-                        <Select style={{backgroundColor: 'white', width: '20vw'}} value={wheelchairAccess} onChange={event => setWheelchairAccess(event.target.value)}>
-                            <MenuItem value={"Yes"}>Yes</MenuItem>
-                            <MenuItem value={"No"}>No</MenuItem>
-                        </Select>
+                    <div style={{marginBottom: '1rem', display: 'flex'}}>
+                        <div>
+                            <h4>Wheelchair Access:</h4>
+                            <Select style={{backgroundColor: 'white', width: '20vw'}} value={wheelchairAccess} onChange={event => setWheelchairAccess(event.target.value)}>
+                                <MenuItem value={"Yes"}>Yes</MenuItem>
+                                <MenuItem value={"No"}>No</MenuItem>
+                            </Select>
+                        </div>
+                        <div>
+                            <h4>Sort Results:</h4>
+                            <Select style={{backgroundColor: 'white', width: '20vw'}} value={sortBy} onChange={event => handleSortChange(event)}>
+                                <MenuItem value={"Distance"}>Distance</MenuItem>
+                                <MenuItem value={"Name"}>Name</MenuItem>
+                            </Select>
+                        </div>
                     </div>
                     <Button variant='contained' onClick={handleSearch}>Search</Button>
                 </div>
@@ -209,17 +259,27 @@ export default function Taxis() {
                     <h3>Any of these fields can be left blank</h3>
                     <div style={styles.searchOptions}>
                         <TextField style={styles.option} variant='filled' placeholder='Operator Type' value={opType} onChange={event => setOpType(event.target.value)} />
-                        <TextField style={styles.option} variant='filled' placeholder='Radius' value={radius} onChange={event => setRadius(event.target.value)} />
+                        <TextField style={styles.option} variant='filled' placeholder='Radius' value={radius} onChange={event => handleRadiusChange(event)} />
                         <TextField style={styles.option} variant='filled' placeholder='Operator Name' value={opName} onChange={event => setOpName(event.target.value)} />
                     </div>
-                    <div style={{marginBottom: '1rem'}}>
-                        <h4>Wheelchair Access:</h4>
-                        <Select style={{backgroundColor: 'white', width: '20vw'}} value={wheelchairAccess} onChange={event => setWheelchairAccess(event.target.value)}>
-                            <MenuItem value={"Yes"}>Yes</MenuItem>
-                            <MenuItem value={"No"}>No</MenuItem>
-                        </Select>
+                    <div style={{marginBottom: '1rem', display: 'flex', justifyContent: 'space-between'}}>
+                        <div>
+                            <h4>Wheelchair Access:</h4>
+                            <Select style={{backgroundColor: 'white', width: '20vw'}} value={wheelchairAccess} onChange={event => setWheelchairAccess(event.target.value)}>
+                                <MenuItem value={"Yes"}>Yes</MenuItem>
+                                <MenuItem value={"No"}>No</MenuItem>
+                            </Select>
+                        </div>
+                        <div>
+                            <h4>Sort Results:</h4>
+                            <Select style={{backgroundColor: 'white', width: '20vw'}} value={sortBy} onChange={event => handleSortChange(event)}>
+                                <MenuItem value={"Distance"}>Distance</MenuItem>
+                                <MenuItem value={"Name"}>Name</MenuItem>
+                            </Select>
+                        </div>
                     </div>
                     <Button variant='contained' onClick={handleSearch}>Search</Button>
+                    <p>{error}</p>
                 </div>
                 <div style={{marginTop: '1rem'}}>
                     <h1 style={{marginBottom: '0.75rem', marginLeft: '1rem', color: '#D7D7D7'}}>Operators near you:</h1>
@@ -229,15 +289,6 @@ export default function Taxis() {
             )
         }
     }
-
-    return (
-        <div style={styles.screenContainer}>
-            <NavBar />
-            <div style={{marginTop: '1rem'}}>
-                <h1 style={{marginBottom: '0.75rem', marginLeft: '1rem', color: '#D7D7D7'}}>Operators near you:</h1>
-            </div>
-        </div>
-    )
 }
 
 const styles = {
