@@ -8,10 +8,12 @@ export default function AirQuality() {
     const [currentQuality, setCurrentQuality] = useState(null);
     const [refreshed, setRefreshed] = useState('');
 
+    // Get air quality on component mount
     useEffect(() => {
         getAirQuality();
     }, []);
 
+    // Request air quality from API
     const getAirQuality = () => {
         fetch('https://api.tfl.gov.uk/AirQuality', {
             method: 'GET',
@@ -37,6 +39,7 @@ export default function AirQuality() {
         .catch(err => setError(err.message));
     }
 
+    // Handle sending a new request to API
     const handleRefresh = () => {
         setRefreshed('Refreshed')
         // Clear refreshed message after 4 seconds
@@ -44,6 +47,7 @@ export default function AirQuality() {
         getAirQuality();
     }
 
+    // Get todays forecast from data returned by API
     const todaysForcast = () => {
       if (currentQuality)  {
         const { forecastBand, forecastSummary, nO2Band, o3Band, pM10Band, pM25Band, sO2Band, publishedDate, forecastText} = currentQuality.currentForecast[0];

@@ -15,7 +15,7 @@ export default function Taxis() {
     const [radius, setRadius] = useState('');
     const [opName, setOpName] = useState('');
     const [wheelchairAccess, setWheelchairAccess] = useState('');
-    const [sortBy, setSortBy] = useState('');
+    const [sortBy, setSortBy] = useState('Distance');
 
     
     useEffect(() => {
@@ -55,7 +55,7 @@ export default function Taxis() {
             query += `&wc=${wheelchairAccess}`
         }
 
-        // Dummy data to use if you are not in London: lat: 51.5073509 lon: -0.1277583
+        // lat and lon values are hard-coded for testing purposes. For production swap for 'latitude' and 'longitude' state values
         fetch(`https://api.tfl.gov.uk/Cabwise/search?lat=${51.5073509}&lon=${-0.1277583}${query}`, {
             method: 'GET',
             headers: {
@@ -174,7 +174,7 @@ export default function Taxis() {
         }
     }
 
-    // Sort operators by OrganisationName alphabetically
+    // Sort operators by Organisation Name alphabetically
     const sortByName = () => searchResults.Operators.OperatorList.sort(function (a, b) {
         if (a.OrganisationName < b.OrganisationName) {
             return -1;
@@ -212,6 +212,7 @@ export default function Taxis() {
     };
 
     if (searchResults) {
+        // If no results were found by API request
         if (searchResults.Operators.OperatorList.length === 0) {
             return (
                 <div style={styles.screenContainer}>
@@ -220,8 +221,8 @@ export default function Taxis() {
                     <h2>Search Options</h2>
                     <h3>Any of these fields can be left blank</h3>
                     <div style={styles.searchOptions}>
-                        <TextField style={styles.option} variant='filled' placeholder='Operator Type' value={opType} onChange={event => setOpType(event.target.value)} />
-                        <TextField style={styles.option} variant='filled' placeholder='Radius' value={radius} onChange={event => handleRadiusChange(event)} />
+                        <TextField style={styles.option} variant='filled' placeholder='Operator Type (Ex. Minicab, Executive, Limousine)' value={opType} onChange={event => setOpType(event.target.value)} />
+                        <TextField style={styles.option} variant='filled' placeholder='Radius (Metres)' value={radius} onChange={event => handleRadiusChange(event)} />
                         <TextField style={styles.option} variant='filled' placeholder='Operator Name' value={opName} onChange={event => setOpName(event.target.value)} />
                     </div>
                     <div style={{marginBottom: '1rem', display: 'flex'}}>
@@ -244,12 +245,13 @@ export default function Taxis() {
                 </div>
                 <div style={{marginTop: '1rem'}}>
                     <h1 style={{marginBottom: '0.75rem', marginLeft: '1rem', color: '#D7D7D7'}}>Operators near you:</h1>
-                    <p>No operators were found near your location.</p>
+                    <p style={{color: '#D7D7D7', marginLeft: '1rem'}}>No operators were found near your location.</p>
                 </div>
             </div>
             )
         }
 
+        // If data is found by API request
         if (searchResults.Operators.OperatorList.length > 0) {
             return (
                 <div style={styles.screenContainer}>
@@ -258,8 +260,8 @@ export default function Taxis() {
                     <h2>Search Options</h2>
                     <h3>Any of these fields can be left blank</h3>
                     <div style={styles.searchOptions}>
-                        <TextField style={styles.option} variant='filled' placeholder='Operator Type' value={opType} onChange={event => setOpType(event.target.value)} />
-                        <TextField style={styles.option} variant='filled' placeholder='Radius' value={radius} onChange={event => handleRadiusChange(event)} />
+                        <TextField style={styles.option} variant='filled' placeholder='Operator Type (Ex. Minicab, Executive, Limousine)' value={opType} onChange={event => setOpType(event.target.value)} />
+                        <TextField style={styles.option} variant='filled' placeholder='Radius (Metres)' value={radius} onChange={event => handleRadiusChange(event)} />
                         <TextField style={styles.option} variant='filled' placeholder='Operator Name' value={opName} onChange={event => setOpName(event.target.value)} />
                     </div>
                     <div style={{marginBottom: '1rem', display: 'flex', justifyContent: 'space-between'}}>

@@ -8,7 +8,7 @@ export default function CabOperator(props) {
             <h3 style={{marginBottom: '0.25rem'}}>Operator:</h3>
             <p>Name: {name}</p>
             <p>Phone number: {phoneNum}</p>
-            <p>Distance: {distance}</p>
+            <p>Distance: {distance} miles</p>
         </div>
     )
 }

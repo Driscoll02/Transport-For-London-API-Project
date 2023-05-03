@@ -7,11 +7,12 @@ import Button from '@mui/material/Button';
 import { useMediaQuery } from "@mui/material";
 
 export default function NavBar() {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     const desktopMatches = useMediaQuery('(min-width:1024px)');
     const tabletMatches = useMediaQuery('(min-width:768px)');
 
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+    // Component screen for larger desktop sized screens
     const DesktopScreen = () => {
         return (
             <nav style={styles.navContainer}>
@@ -36,6 +37,7 @@ export default function NavBar() {
         )
     }
 
+    // Component screen for smaller tablet sized screens
     const TabletScreen = () => {
         return (
             <nav style={styles.navContainer}>
@@ -60,7 +62,9 @@ export default function NavBar() {
         )
     }
 
+    // Component screen for smartphone sized screens
     const PhoneScreen = () => {
+        // Toggle open/closed menu state
         const toggleMenu = () => {
             isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true);
         }
@@ -81,6 +85,7 @@ export default function NavBar() {
             }
         }
 
+        // Component for anything smaller than smartphone
         return (
             <div>
                 <nav style={styles.navContainer}>

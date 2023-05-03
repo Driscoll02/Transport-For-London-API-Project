@@ -9,6 +9,7 @@ export default function BikePoints() {
     const [limit, setLimit] = useState(5);
     const [offset, setOffset] = useState(0);
 
+    // Helper functions for pagination
     const handleNextPage = () => {
         setOffset(offset + 5);
         setLimit(limit + 5);
@@ -23,10 +24,12 @@ export default function BikePoints() {
         }
     }
 
+    // Get bike points on component mount
     useEffect(() => {
         getBikePoints();
     }, []);
 
+    // Request bike points from API
     const getBikePoints = () => {
         fetch('https://api.tfl.gov.uk/BikePoint', {
             method: 'GET',
@@ -52,6 +55,7 @@ export default function BikePoints() {
         .catch(err => setError(err.message));
     }
 
+    // Render list returned by API request and provide pagination functionality
     const renderList = (bikePoints, limit, offset) => {
         let limitedBikePoints = []
         

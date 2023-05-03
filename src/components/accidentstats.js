@@ -11,6 +11,7 @@ export default function AccidentStats() {
     const [limit, setLimit] = useState(5);
     const [offset, setOffset] = useState(0);
 
+    // Helper functions for pagination
     const handleNextPage = () => {
         setOffset(offset + 5);
         setLimit(limit + 5);
@@ -25,6 +26,7 @@ export default function AccidentStats() {
         }
     }
 
+    // Render a list of accidents returned by API
     const renderList = (accidents, limit, offset) => {
         let limitedAccidents = []
         
@@ -80,6 +82,7 @@ export default function AccidentStats() {
         }
     }
 
+    // Validate year change input
     const handleYearChange = (event) => {
         const regex = /^[0-9]*$/
         if (event.target.value === "" || regex.test(event.target.value)) {
@@ -87,6 +90,7 @@ export default function AccidentStats() {
         }
     };
 
+    // Request accident stats with year as a parameter
     const getAccidentStats = () => {
         setError('Loading...');
 
