@@ -46,10 +46,12 @@ export default function AirQuality() {
 
     const todaysForcast = () => {
       if (currentQuality)  {
-        const { forecastBand, forecastSummary, nO2Band, o3Band, pM10Band, pM25Band, sO2Band, toDate, forecastText} = currentQuality.currentForecast[0];
+        const { forecastBand, forecastSummary, nO2Band, o3Band, pM10Band, pM25Band, sO2Band, publishedDate, forecastText} = currentQuality.currentForecast[0];
         
+        console.log(currentQuality)
+
         // Format date into a nicer state
-        const date = new Date(toDate);
+        const date = new Date(publishedDate);
         const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', timeZoneName: 'short' };
         const formattedDate = date.toLocaleDateString('en-GB', options);
 
@@ -75,7 +77,7 @@ export default function AirQuality() {
                 <h3 style={{marginBottom: '0.1rem'}}>Weather forecast:</h3>
                 <h4 style={{marginBottom: '1rem', fontWeight: 'normal'}}>{filteredForecastText}</h4>
                 <h4 style={{marginBottom: '1rem'}}>{forecastSummary}</h4>
-                <h4 style={{marginBottom: '2rem'}}>Next update: {formattedDate}</h4>
+                <h4 style={{marginBottom: '2rem'}}>Last Updated: {formattedDate}</h4>
                 <div style={{display: 'flex', alignItems: 'center'}}>
                     <Button variant='contained' style={{marginRight: '1rem'}} onClick={handleRefresh}>Refresh Forecast</Button>
                     <p>{refreshed}</p>

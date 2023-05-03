@@ -120,15 +120,33 @@ export default function AccidentStats() {
     }
 
     return (
-        <div>
+        <div style={styles.screenContainer}>
             <NavBar />
-            <div style={{margin: '2rem'}}>
+            <div style={styles.accidentsContainer}>
                 <h1 style={{marginBottom: '1rem'}}>Get accident stats for: </h1>
-                <TextField placeholder='Year' label='Year' variant='filled' color='secondary' onChange={handleYearChange} value={year} />
-                <Button variant="contained" color="primary" style={{marginLeft: '2rem'}} onClick={getAccidentStats}>Get Accident Stats</Button>
+                <div style={{display: 'flex'}}>
+                    <TextField placeholder='Year' label='Year' variant='filled' style={{backgroundColor: '#D7D7D7'}} onChange={handleYearChange} value={year} />
+                    <Button variant="contained" color="primary" style={{marginLeft: '2rem'}} onClick={getAccidentStats}>Get Accident Stats</Button>
+                </div>
                 <p>{error}</p>
                 {renderList(accidents, limit, offset)}
             </div>
         </div>
     )
+}
+
+const styles = {
+    screenContainer: {
+        backgroundColor: '#1E1E1E',
+        height: '100vh',
+        lineHeight: 1.75,
+    },
+    accidentsContainer: {
+        color: '#D7D7D7',
+        margin: '2rem',
+        backgroundColor: '#2D2D2D',
+        padding: '1rem',
+        borderRadius: 10,
+        boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.4)',
+    }
 }
