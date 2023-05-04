@@ -291,6 +291,45 @@ export default function Taxis() {
             )
         }
     }
+
+    // If user doesn't grant location permissions
+    return (
+        <div style={styles.screenContainer}>
+            <NavBar />
+            <div style={styles.searchOptionsContainer}>
+                    <h2>Search Options</h2>
+                    <h3>Any of these fields can be left blank</h3>
+                    <div style={styles.searchOptions}>
+                        <TextField style={styles.option} variant='filled' placeholder='Operator Type (Ex. Minicab, Executive, Limousine)' value={opType} onChange={event => setOpType(event.target.value)} />
+                        <TextField style={styles.option} variant='filled' placeholder='Radius (Metres)' value={radius} onChange={event => handleRadiusChange(event)} />
+                        <TextField style={styles.option} variant='filled' placeholder='Operator Name' value={opName} onChange={event => setOpName(event.target.value)} />
+                    </div>
+                    <div style={{marginBottom: '1rem', display: 'flex', justifyContent: 'space-between'}}>
+                        <div>
+                            <h4>Wheelchair Access:</h4>
+                            <Select style={{backgroundColor: 'white', width: '20vw'}} value={wheelchairAccess} onChange={event => setWheelchairAccess(event.target.value)}>
+                                <MenuItem value={"Yes"}>Yes</MenuItem>
+                                <MenuItem value={"No"}>No</MenuItem>
+                            </Select>
+                        </div>
+                        <div>
+                            <h4>Sort Results:</h4>
+                            <Select style={{backgroundColor: 'white', width: '20vw'}} value={sortBy} onChange={event => handleSortChange(event)}>
+                                <MenuItem value={"Distance"}>Distance</MenuItem>
+                                <MenuItem value={"Name"}>Name</MenuItem>
+                            </Select>
+                        </div>
+                    </div>
+                    <Button variant='contained'>Search</Button>
+                    <p>{error}</p>
+                </div>
+                <div style={styles.operatorList}>
+                    <p>Page did not get permission to access location.</p>
+                    <p>You can re-enable location in your device or browser settings.</p>
+                    <p>Once re-enabled, refresh the page.</p>
+                </div>
+        </div>
+    )
 }
 
 const styles = {
@@ -324,5 +363,5 @@ const styles = {
         borderRadius: 10,
         boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.4)',
         color: '#D7D7D7',
-    }
+    },
 }
